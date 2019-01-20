@@ -30,15 +30,13 @@ public class CustomTCPSocketClient {
 				String tosend = scanner.nextLine();
 				dos.writeUTF(tosend);
 
-				if (tosend.equals("Exit")) {
+				if (tosend.equalsIgnoreCase("Exit")) {
 					System.out.println("Closing this connection : " + socket);
 					socket.close();
 					System.out.println("Connection closed");
 					break;
 				}
 
-				String received = dis.readUTF();
-				System.out.println(received);
 			}
 			scanner.close();
 		} catch (Exception e) {

@@ -66,6 +66,9 @@ public class ClientHandler implements Runnable {
 	private void multicastMessage(String received) throws IOException, InterruptedException {
 		System.out.println("Multicasting: " + received);
 		dataQueue.put(received);
+		
+		Thread publisherThread = new Thread(new CustomUDPDataPublisher(dataQueue));
+		publisherThread.start();
 
 	}
 

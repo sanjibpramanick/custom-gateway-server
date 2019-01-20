@@ -40,8 +40,7 @@ public class CustomTCPSocketServer {
 
 			Thread serverThread = new Thread(new ClientHandler(client, dis, dos, dataQueue));
 			serverThread.start();
-			Thread publisherThread = new Thread(new CustomUDPDataPublisher(dataQueue));
-			publisherThread.start();
+			
 			
 			new Thread(new UDPDataReceiver()).start();
 		} catch (Exception e) {
