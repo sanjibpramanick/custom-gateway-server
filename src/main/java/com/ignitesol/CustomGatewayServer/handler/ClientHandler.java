@@ -36,7 +36,7 @@ public class ClientHandler implements Runnable {
 
 				received = dis.readUTF();
 
-				if (received.equals("Exit")) {
+				if (received.equalsIgnoreCase("Exit")) {
 					System.out.println("Client " + this.s + " sends exit...");
 					System.out.println("Closing this connection.");
 					this.s.close();
